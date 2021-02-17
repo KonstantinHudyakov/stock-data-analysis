@@ -56,6 +56,7 @@ def get(provider, instrument, year, price_calculation='close', time_group=None, 
             'high': price_data.groupby(pd.Grouper(freq=time_group)).high.max(),
             'low': price_data.groupby(pd.Grouper(freq=time_group)).low.min(),
             'open': price_data.groupby(pd.Grouper(freq=time_group)).open.first(),
+            'volume': price_data.groupby(pd.Grouper(freq=time_group)).volume.sum()
         })
         price_data = grouped_data
 
